@@ -13,8 +13,5 @@
 @property (assign, nonatomic) CGFloat obtaclesSpeed;
 @property (assign, nonatomic) CGFloat obtaclesFrequency;
 
-@property (assign, nonatomic) CGFloat obstacleWidthScale;
-@property (assign, nonatomic) CGFloat obstacleHeightScale;
-
 
 @end

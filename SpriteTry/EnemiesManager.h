@@ -10,9 +10,9 @@
 #import "Enemy.h"
 
 struct EnemiesKilled {
-    CGFloat enemyType1KilledTimes;
+    NSInteger enemyType1KilledTimes;
     
-    CGFloat totalEnemiesKilled;
+    NSInteger totalEnemiesKilled;
 };
 
 typedef struct EnemiesKilled EnemiesKilled;

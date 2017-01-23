@@ -24,7 +24,7 @@
         Stars* starsField = [Stars node];
         [self addChild:starsField];
         
-        
+
         // Hero
         SKSpriteNode* hero = [SKSpriteNode spriteNodeWithImageNamed:@"spaceship"];
         hero.size = CGSizeMake(100, 100);
@@ -37,7 +37,7 @@
         [hero addChild:engine];
         
         // Game Start Text
-        GameStartNode* gameStartNode = [GameStartNode node];
+        GameStartNode* gameStartNode = [[GameStartNode node] initWithSize:size];
         gameStartNode.position = CGPointMake(self.size.width / 2, self.size.height - 120);
         [self addChild:gameStartNode];
         

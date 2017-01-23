@@ -14,6 +14,7 @@
 		3106345D1E33BABC0064FCF0 /* EnemiesManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3106345C1E33BABC0064FCF0 /* EnemiesManager.m */; };
 		310634601E3406790064FCF0 /* ControlPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3106345F1E3406790064FCF0 /* ControlPanel.m */; };
 		310634631E34B2E10064FCF0 /* CollisionHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 310634621E34B2E10064FCF0 /* CollisionHandler.m */; };
+		310634671E35F8400064FCF0 /* GameSceneLabels.m in Sources */ = {isa = PBXBuildFile; fileRef = 310634661E35F8400064FCF0 /* GameSceneLabels.m */; };
 		3148E1451E2A4FD100A616EA /* TitleScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 3148E1441E2A4FD100A616EA /* TitleScene.m */; };
 		3148E1491E2A58AB00A616EA /* Stars.m in Sources */ = {isa = PBXBuildFile; fileRef = 3148E1481E2A58AB00A616EA /* Stars.m */; };
 		3148E14C1E2A5FDE00A616EA /* fireBug.sks in Resources */ = {isa = PBXBuildFile; fileRef = 3148E14B1E2A5FDE00A616EA /* fireBug.sks */; };
@@ -48,6 +49,8 @@
 		3106345F1E3406790064FCF0 /* ControlPanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ControlPanel.m; sourceTree = "<group>"; };
 		310634611E34B2E10064FCF0 /* CollisionHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollisionHandler.h; sourceTree = "<group>"; };
 		310634621E34B2E10064FCF0 /* CollisionHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollisionHandler.m; sourceTree = "<group>"; };
+		310634651E35F8400064FCF0 /* GameSceneLabels.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameSceneLabels.h; sourceTree = "<group>"; };
+		310634661E35F8400064FCF0 /* GameSceneLabels.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameSceneLabels.m; sourceTree = "<group>"; };
 		3148E1431E2A4FD100A616EA /* TitleScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TitleScene.h; sourceTree = "<group>"; };
 		3148E1441E2A4FD100A616EA /* TitleScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TitleScene.m; sourceTree = "<group>"; };
 		3148E1471E2A58AB00A616EA /* Stars.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Stars.h; sourceTree = "<group>"; };
@@ -168,6 +171,8 @@
 			children = (
 				3148E1531E2A6F1900A616EA /* GameStartNode.h */,
 				3148E1541E2A6F1900A616EA /* GameStartNode.m */,
+				310634651E35F8400064FCF0 /* GameSceneLabels.h */,
+				310634661E35F8400064FCF0 /* GameSceneLabels.m */,
 				3148E1471E2A58AB00A616EA /* Stars.h */,
 				3148E1481E2A58AB00A616EA /* Stars.m */,
 			);
@@ -217,10 +222,10 @@
 			children = (
 				31CC45161E28EC920032CE58 /* GameViewController.h */,
 				31CC45171E28EC920032CE58 /* GameViewController.m */,
+				3148E1461E2A4FDC00A616EA /* Scenes */,
 				3148E14A1E2A58AD00A616EA /* General Objects */,
 				3148E15B1E2B84B300A616EA /* GameScene Objects */,
 				310634641E34B4C10064FCF0 /* Handlers */,
-				3148E1461E2A4FDC00A616EA /* Scenes */,
 				3148E14D1E2A611200A616EA /* Particles */,
 				31CC450F1E28EC920032CE58 /* GameScene.sks */,
 				31CC45111E28EC920032CE58 /* Actions.sks */,
@@ -328,6 +333,7 @@
 				3148E15A1E2B849600A616EA /* Rocket.m in Sources */,
 				310634481E315D880064FCF0 /* ObstaclesManager.m in Sources */,
 				31CC45151E28EC920032CE58 /* GameScene.m in Sources */,
+				310634671E35F8400064FCF0 /* GameSceneLabels.m in Sources */,
 				31CC450B1E28EC920032CE58 /* main.m in Sources */,
 				3148E1491E2A58AB00A616EA /* Stars.m in Sources */,
 			);

@@ -21,8 +21,4 @@
 -(void) shoot;
 
 
--(void) stopMoving;
--(void) moveRight;
--(void) moveLeft;
-
 @end

@@ -44,7 +44,7 @@
 
 -(void) createEnemies {
     
-    Enemy * enemy = [Enemy enemySpriteWithSize:CGSizeMake(40, 40)];
+    Enemy * enemy = [Enemy enemySpriteWithSize:CGSizeMake(self.scene.size.width * 0.1, self.scene.size.width * 0.1)];
     
     CGFloat startX = arc4random_uniform(self.scene.size.width - enemy.size.width) + enemy.size.width / 2;
     CGFloat startY = self.scene.size.height + enemy.size.height * 3.5;
@@ -69,8 +69,6 @@
     }
     
     self.enemiesKilled = killed;
-    
-    NSLog(@"%f", self.enemiesKilled.totalEnemiesKilled);
 }
 
 @end

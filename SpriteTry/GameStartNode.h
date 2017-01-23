@@ -10,6 +10,9 @@
 
 @interface GameStartNode : SKNode
 
+- (instancetype)initWithSize:(CGSize) size;
+
+
 -(void) setScore:(NSString*) score;
 
 @end

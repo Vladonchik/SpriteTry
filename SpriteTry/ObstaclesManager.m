@@ -11,6 +11,9 @@
 
 @implementation ObstaclesManager
 
+CGFloat obstacleWidthScale;
+CGFloat obstacleHeightScale;
+
 -(void) setObtaclesSpeed:(CGFloat)obtaclesSpeed {
     _obtaclesSpeed = obtaclesSpeed;
     [self removeAllActions];
@@ -27,8 +30,8 @@
 {
     self = [super init];
     if (self) {
-        self.obstacleWidthScale = 0.3;
-        self.obstacleHeightScale = 0.03;
+        obstacleWidthScale = 0.3;
+        obstacleHeightScale = 0.03;
         self.obtaclesSpeed = 20;
         self.obtaclesFrequency = 30;
     }
@@ -51,7 +54,7 @@
 
 -(void) createObstacles {
 
-    Obstacle * obstacle = [Obstacle obstacleSpriteWithSize:CGSizeMake(self.scene.size.width * self.obstacleWidthScale,  self.scene.size.height * self.obstacleHeightScale)];
+    Obstacle * obstacle = [Obstacle obstacleSpriteWithSize:CGSizeMake(self.scene.size.width * obstacleWidthScale,  self.scene.size.height * obstacleHeightScale)];
     
     CGFloat startX = arc4random_uniform(self.scene.size.width - obstacle.size.width) + obstacle.size.width / 2;
     CGFloat startY = self.scene.size.height + obstacle.size.height;

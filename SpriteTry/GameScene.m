@@ -17,6 +17,7 @@
 #import "Enemy.h"
 #import "ControlPanel.h"
 #import "CollisionHandler.h"
+#import "GameSceneLabels.h"
 
 static CGFloat spaceShipeOffset = 25;
 
@@ -34,12 +35,10 @@ ObstaclesManager* obstacleManager;
 Rocket* rocket;
 ControlPanel* controlPanel;
 CollisionHandler* collisionHandler;
+GameSceneLabels* gameSceneLabels;
 
 SKShapeNode *spinnyNode;
-SKFieldNode* node;
-
 CFTimeInterval lastUpdatedTime;
-
 
 #pragma mark - Initialization
 
@@ -80,23 +79,16 @@ CFTimeInterval lastUpdatedTime;
         //Controll Panel
         controlPanel = [ControlPanel controlPanelSpriteWithScene:self];
         [self addChild:controlPanel];
-    
+        
         // Rocket
         rocket = [Rocket rocketSprite];
         rocket.position = CGPointMake(size.width / 2, controlPanel.size.height + rocket.size.height / 2 + spaceShipeOffset);
         [self addChild:rocket];
         
-        //spinner for movement
-        spinnyNode = [SKShapeNode shapeNodeWithRectOfSize:CGSizeMake(20, 20) cornerRadius:20 * 0.3];
-        spinnyNode.lineWidth = 2.5;
-        
-        [spinnyNode runAction:[SKAction repeatActionForever:[SKAction rotateByAngle:M_PI duration:1]]];
-        [spinnyNode runAction:[SKAction sequence:@[
-                                                   [SKAction waitForDuration:0.3],
-                                                   [SKAction fadeOutWithDuration:0.3],
-                                                   [SKAction removeFromParent],
-                                                   ]]];
-        
+        // Labels
+        gameSceneLabels = [[GameSceneLabels node] initWithSize:self.size];
+        gameSceneLabels.position = CGPointMake(gameSceneLabels.calculateAccumulatedFrame.size.width / 2, self.size.height - gameSceneLabels.calculateAccumulatedFrame.size.height / 2);
+        [self addChild:gameSceneLabels];
     }
     return self;
 }
@@ -109,7 +101,6 @@ CFTimeInterval lastUpdatedTime;
 
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
-    [rocket stopMoving];
 }
 
 -(void)touchesMoved:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
@@ -163,6 +154,8 @@ CFTimeInterval lastUpdatedTime;
             
         case missileCategory | enemyCategory: {
             [collisionHandler missileAndEnemy:enemiesManager forContact:contact];
+            NSInteger enemiesKilled = enemiesManager.enemiesKilled.totalEnemiesKilled;
+            [gameSceneLabels enemiesKilled:enemiesKilled];
         }
             break;
         case obstacleCategory | enemyCategory: {

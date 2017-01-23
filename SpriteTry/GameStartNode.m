@@ -14,7 +14,7 @@
     SKLabelNode *scoreNode;
 }
 
-- (instancetype)init
+- (instancetype)initWithSize:(CGSize) size
 {
     self = [super init];
     if (self) {
@@ -38,7 +38,7 @@
         instructions.fontSize = 14;
         instructions.fontColor = [SKColor whiteColor];
         instructions.text = @"Tap to start game";
-        instructions.position = CGPointMake(0, -45);
+        instructions.position = CGPointMake(0, - size.height * 0.05);
         [self addChild:instructions];
         
         instructions.alpha = 0;
@@ -53,7 +53,7 @@
         scoreNode = [SKLabelNode labelNodeWithFontNamed:@"AvenirNext-Medium"];
         scoreNode.fontSize = 16;
         scoreNode.fontColor = [SKColor whiteColor];
-        scoreNode.position = CGPointMake(0, -500);
+        scoreNode.position = CGPointMake(0, - size.height * 0.7);
         [self addChild:scoreNode];
     }
     return self;

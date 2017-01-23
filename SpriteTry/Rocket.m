@@ -53,18 +53,6 @@ static CGFloat spaceShipHeightScale = 0.1;
     return rocket;
 }
 
--(void) stopMoving {
-    [self.physicsBody setVelocity:CGVectorMake(0, 0)];
-}
-
--(void) moveRight {
-    [self.physicsBody applyImpulse:CGVectorMake(7 * self.acceleration, 0)];
-}
-
--(void) moveLeft {
-    [self.physicsBody applyImpulse:CGVectorMake(-7 * self.acceleration, 0)];
-}
-
 -(void) shoot {
     Missile* missile = [Missile missileSpriteWithSize:CGSizeMake(self.size.width * 0.2, self.size.height * 0.2)];
     missile.position = CGPointMake(self.position.x, self.position.y + missile.size.height / 2);
