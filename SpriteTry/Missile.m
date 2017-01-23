@@ -35,18 +35,9 @@ static CGFloat shootNodeFastSpeed = 10;
     return missile;
 }
 
--(void) shootNormal {
+-(void) shoot {
     [self.physicsBody applyImpulse:CGVectorMake(0, shootNodeNormalSpeed)];
 }
-
--(void) shootFast {
-    [self.physicsBody applyImpulse:CGVectorMake(0, 6 * shootNodeFastSpeed)];
-}
-
--(void) shootWithCustomVelocity:(CGFloat) velocity {
-    [self.physicsBody applyImpulse:CGVectorMake(0, velocity)];
-}
-
 
 
 @end

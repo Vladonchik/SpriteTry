@@ -11,8 +11,6 @@
 
 @interface Rocket : SKSpriteNode
 
-//properties
-@property (assign, nonatomic) CGFloat acceleration;
 @property (assign, nonatomic) CGFloat fireRate;
 
 //create rocket
@@ -20,5 +18,6 @@
 
 -(void) shoot;
 
+-(void) powerUpFireRate;
 
 @end

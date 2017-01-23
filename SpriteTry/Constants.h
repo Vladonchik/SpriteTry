@@ -16,7 +16,7 @@ static const uint32_t obstacleCategory    =  0x1 << 2;
 static const uint32_t enemyCategory      =  0x1 << 3;
 static const uint32_t missileCategory     =  0x1 << 4;
 static const uint32_t josticCategory     =  0x1 << 5;
-
+static const uint32_t powerUpFastShootCategory  =  0x1 << 6;
 
 
 #endif /* Constants_h */

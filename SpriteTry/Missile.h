@@ -15,9 +15,7 @@
 
 
 // Public API
--(void) shootNormal;
--(void) shootFast;
--(void) shootWithCustomVelocity:(CGFloat) velocity;
+-(void) shoot;
 
 
 @end

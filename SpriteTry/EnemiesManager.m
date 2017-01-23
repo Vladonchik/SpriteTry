@@ -20,9 +20,7 @@
 {
     self = [super init];
     if (self) {
-        
         [self spawn];
-        
     }
     return self;
 }
@@ -33,7 +31,7 @@
     
     //CGFloat randomBetween_0_1 = (CGFloat)arc4random() / UINT32_MAX;
     
-    SKAction* delay = [SKAction waitForDuration: 2 + arc4random_uniform(3)];
+    SKAction* delay = [SKAction waitForDuration: 2 + arc4random_uniform(2)];
     SKAction *update = [SKAction runBlock:^{
         [weakSelf createEnemies];
     }];
@@ -47,7 +45,7 @@
     Enemy * enemy = [Enemy enemySpriteWithSize:CGSizeMake(self.scene.size.width * 0.1, self.scene.size.width * 0.1)];
     
     CGFloat startX = arc4random_uniform(self.scene.size.width - enemy.size.width) + enemy.size.width / 2;
-    CGFloat startY = self.scene.size.height + enemy.size.height * 3.5;
+    CGFloat startY = self.scene.size.height + enemy.size.height * 1.5;
     enemy.position = CGPointMake(startX, startY);    
     [self addChild:enemy];
     

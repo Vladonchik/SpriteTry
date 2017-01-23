@@ -13,18 +13,8 @@
 
 CGFloat obstacleWidthScale;
 CGFloat obstacleHeightScale;
-
--(void) setObtaclesSpeed:(CGFloat)obtaclesSpeed {
-    _obtaclesSpeed = obtaclesSpeed;
-    [self removeAllActions];
-    [self spawn];
-}
-
--(void) setObtaclesFrequency:(CGFloat)obtaclesFrequency {
-    _obtaclesFrequency = obtaclesFrequency;
-    [self removeAllActions];
-    [self spawn];
-}
+CGFloat obtaclesSpeed;
+CGFloat obtaclesFrequency;
 
 - (instancetype)init
 {
@@ -32,18 +22,21 @@ CGFloat obstacleHeightScale;
     if (self) {
         obstacleWidthScale = 0.3;
         obstacleHeightScale = 0.03;
-        self.obtaclesSpeed = 20;
-        self.obtaclesFrequency = 30;
+        obtaclesSpeed = 20;
+        obtaclesFrequency = 30;
+        
+        [self spawn];
     }
     return self;
 }
+
 
 -(void) spawn {
     __weak ObstaclesManager *weakSelf = self;
     
     //CGFloat randomBetween_0_1 = (CGFloat)arc4random() / UINT32_MAX;
     
-    SKAction* delay = [SKAction waitForDuration: 2 + arc4random_uniform(100 / self.obtaclesFrequency)];
+    SKAction* delay = [SKAction waitForDuration: 2 + arc4random_uniform(100 / obtaclesFrequency)];
     SKAction *update = [SKAction runBlock:^{
         [weakSelf createObstacles];
     }];
@@ -57,20 +50,19 @@ CGFloat obstacleHeightScale;
     Obstacle * obstacle = [Obstacle obstacleSpriteWithSize:CGSizeMake(self.scene.size.width * obstacleWidthScale,  self.scene.size.height * obstacleHeightScale)];
     
     CGFloat startX = arc4random_uniform(self.scene.size.width - obstacle.size.width) + obstacle.size.width / 2;
-    CGFloat startY = self.scene.size.height + obstacle.size.height;
+    CGFloat startY = self.scene.size.height + obstacle.size.height * 1.8;
     obstacle.position = CGPointMake(startX, startY);
     [self addChild:obstacle];
     
     CGFloat destinationY = 0 - self.scene.size.height - obstacle.size.height;
-    CGFloat duration = 100 / self.obtaclesSpeed;
+    CGFloat duration = 100 / obtaclesSpeed;
     SKAction* move = [SKAction moveByX:0 y:destinationY duration:duration];
     SKAction* remove = [SKAction removeFromParent];
     
     [obstacle runAction:[SKAction sequence:@[move, remove]]];
 }
 
-- (void)dealloc
-{
+- (void)dealloc {
     NSLog(@"object: %@ dealloced", NSStringFromClass(self.class));
 }
 

@@ -11,10 +11,14 @@
 #import "Constants.h"
 #import "Missile.h"
 
+
+
+@implementation Rocket
+
 static CGFloat spaceShipWidthScale = 0.15;
 static CGFloat spaceShipHeightScale = 0.1;
 
-@implementation Rocket
+CGFloat normalFireRate = 1.0;
 
 + (instancetype) rocketSprite
 {
@@ -27,9 +31,9 @@ static CGFloat spaceShipHeightScale = 0.1;
     CGFloat screenWidth = screenRect.size.width;
     CGFloat screenHeight = screenRect.size.height;
     
-    rocket.size = CGSizeMake(screenWidth * spaceShipWidthScale, screenHeight * spaceShipHeightScale);
-    rocket.acceleration = 1;
     rocket.fireRate = 1.0;
+    
+    rocket.size = CGSizeMake(screenWidth * spaceShipWidthScale, screenHeight * spaceShipHeightScale);
     
     rocket.physicsBody = [SKPhysicsBody bodyWithTexture:rocketTexture size:rocket.size];
 
@@ -37,14 +41,14 @@ static CGFloat spaceShipHeightScale = 0.1;
     rocket.physicsBody.allowsRotation = NO;
     
     rocket.physicsBody.categoryBitMask = rocketCategory;
-    rocket.physicsBody.collisionBitMask =rocketCategory | worldCategory;;
-    rocket.physicsBody.contactTestBitMask = obstacleCategory | enemyCategory;
+    rocket.physicsBody.collisionBitMask = rocketCategory | worldCategory;;
+    rocket.physicsBody.contactTestBitMask = obstacleCategory | enemyCategory | powerUpFastShootCategory;
     
     rocket.physicsBody.restitution = 0;
     rocket.physicsBody.friction = 0;
     rocket.physicsBody.linearDamping = 0;
     rocket.physicsBody.angularDamping = 0.2;
-    
+    rocket.physicsBody.usesPreciseCollisionDetection = YES;
     // Engine fire
     SKEmitterNode * engine = [SKEmitterNode nodeWithFile:@"fireBugSmall.sks"];
     engine.position = CGPointMake(0, -rocket.size.height / 2);
@@ -54,11 +58,40 @@ static CGFloat spaceShipHeightScale = 0.1;
 }
 
 -(void) shoot {
+    [[self createMissile] shoot];
+}
+
+-(Missile*) createMissile {
     Missile* missile = [Missile missileSpriteWithSize:CGSizeMake(self.size.width * 0.2, self.size.height * 0.2)];
     missile.position = CGPointMake(self.position.x, self.position.y + missile.size.height / 2);
     [self.scene addChild:missile];
-    
-    [missile shootNormal];
+    return missile;
 }
+
+-(void) powerUpFireRate {
+    
+    // stack power ups
+    if (self.fireRate <= 0.5 && self.fireRate > 0.05) {
+        self.fireRate -= 0.1 ;
+        NSLog(@"stack %f", self.fireRate);
+        [self removeActionForKey:@"powerUpFireRate"];
+    }
+    
+    // first power up
+    if (self.fireRate == normalFireRate) {
+        self.fireRate = 0.5;
+    }
+    
+    SKAction* wait = [SKAction waitForDuration:5.0];
+    SKAction * normal = [SKAction runBlock:^{
+        self.fireRate = normalFireRate;
+    }];
+    SKAction* waitAndBecomeNormal = [SKAction sequence:@[wait, normal]];
+    [self runAction:waitAndBecomeNormal withKey:@"powerUpFireRate"];
+    
+    
+   // NSLog(@"%f", self.fireRate);
+}
+
 
 @end

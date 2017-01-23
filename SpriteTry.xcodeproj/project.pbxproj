@@ -31,6 +31,8 @@
 		31CC451B1E28EC920032CE58 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 31CC45191E28EC920032CE58 /* Main.storyboard */; };
 		31CC451D1E28EC920032CE58 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 31CC451C1E28EC920032CE58 /* Assets.xcassets */; };
 		31CC45201E28EC920032CE58 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 31CC451E1E28EC920032CE58 /* LaunchScreen.storyboard */; };
+		31E58F1F1E368BD600CE4FE1 /* PowerUpFastShoot.m in Sources */ = {isa = PBXBuildFile; fileRef = 31E58F1E1E368BD600CE4FE1 /* PowerUpFastShoot.m */; };
+		31E58F231E3693A600CE4FE1 /* PowerUpsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 31E58F221E3693A600CE4FE1 /* PowerUpsManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -77,6 +79,10 @@
 		31CC451C1E28EC920032CE58 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		31CC451F1E28EC920032CE58 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		31CC45211E28EC920032CE58 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		31E58F1D1E368BD600CE4FE1 /* PowerUpFastShoot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PowerUpFastShoot.h; sourceTree = "<group>"; };
+		31E58F1E1E368BD600CE4FE1 /* PowerUpFastShoot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PowerUpFastShoot.m; sourceTree = "<group>"; };
+		31E58F211E3693A600CE4FE1 /* PowerUpsManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PowerUpsManager.h; sourceTree = "<group>"; };
+		31E58F221E3693A600CE4FE1 /* PowerUpsManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PowerUpsManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -195,6 +201,7 @@
 			children = (
 				3106345A1E33B7FB0064FCF0 /* Enemies */,
 				310634451E315AB30064FCF0 /* Obstacles */,
+				31E58F201E368BDA00CE4FE1 /* Power Ups */,
 				310634411E315A9B0064FCF0 /* Rocket + Missiles + Control */,
 			);
 			name = "GameScene Objects";
@@ -241,6 +248,17 @@
 				31CC450A1E28EC920032CE58 /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		31E58F201E368BDA00CE4FE1 /* Power Ups */ = {
+			isa = PBXGroup;
+			children = (
+				31E58F211E3693A600CE4FE1 /* PowerUpsManager.h */,
+				31E58F221E3693A600CE4FE1 /* PowerUpsManager.m */,
+				31E58F1D1E368BD600CE4FE1 /* PowerUpFastShoot.h */,
+				31E58F1E1E368BD600CE4FE1 /* PowerUpFastShoot.m */,
+			);
+			name = "Power Ups";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -329,10 +347,12 @@
 				310634631E34B2E10064FCF0 /* CollisionHandler.m in Sources */,
 				310634441E315AAF0064FCF0 /* Obstacle.m in Sources */,
 				3106343F1E3156CF0064FCF0 /* Missile.m in Sources */,
+				31E58F1F1E368BD600CE4FE1 /* PowerUpFastShoot.m in Sources */,
 				3106345D1E33BABC0064FCF0 /* EnemiesManager.m in Sources */,
 				3148E15A1E2B849600A616EA /* Rocket.m in Sources */,
 				310634481E315D880064FCF0 /* ObstaclesManager.m in Sources */,
 				31CC45151E28EC920032CE58 /* GameScene.m in Sources */,
+				31E58F231E3693A600CE4FE1 /* PowerUpsManager.m in Sources */,
 				310634671E35F8400064FCF0 /* GameSceneLabels.m in Sources */,
 				31CC450B1E28EC920032CE58 /* main.m in Sources */,
 				3148E1491E2A58AB00A616EA /* Stars.m in Sources */,

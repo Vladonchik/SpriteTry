@@ -17,4 +17,6 @@
 
 -(void) enemyAndObstacle:(SKPhysicsContact*) contact;
 
+-(void) rocketAndPowerUpFastShoot:(SKPhysicsContact*) contact;
+
 @end

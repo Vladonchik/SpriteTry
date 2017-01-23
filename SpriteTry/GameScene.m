@@ -18,6 +18,7 @@
 #import "ControlPanel.h"
 #import "CollisionHandler.h"
 #import "GameSceneLabels.h"
+#import "PowerUpsManager.h"
 
 static CGFloat spaceShipeOffset = 25;
 
@@ -32,6 +33,8 @@ static CGFloat spaceShipeOffset = 25;
 
 EnemiesManager* enemiesManager;
 ObstaclesManager* obstacleManager;
+PowerUpsManager* powerUpsManager;
+
 Rocket* rocket;
 ControlPanel* controlPanel;
 CollisionHandler* collisionHandler;
@@ -73,8 +76,13 @@ CFTimeInterval lastUpdatedTime;
         obstacleManager = [ObstaclesManager node];
         [self addChild:obstacleManager];
         
+        // Enemies
         enemiesManager = [EnemiesManager node];
         [self addChild:enemiesManager];
+        
+        // Power Ups
+        powerUpsManager = [PowerUpsManager node];
+        [self addChild:powerUpsManager];
         
         //Controll Panel
         controlPanel = [ControlPanel controlPanelSpriteWithScene:self];
@@ -164,6 +172,10 @@ CFTimeInterval lastUpdatedTime;
             break;
         case missileCategory | worldCategory: {
             [collisionHandler missileAndWorld:contact];
+        }
+            break;
+        case powerUpFastShootCategory | rocketCategory: {
+            [collisionHandler rocketAndPowerUpFastShoot:contact];
         }
             break;
     }
