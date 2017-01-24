@@ -8,6 +8,7 @@
 
 #import <SpriteKit/SpriteKit.h>
 #import "Enemy.h"
+#import "BaseObjectsManager.h"
 
 struct EnemiesKilled {
     NSInteger enemyType1KilledTimes;
@@ -17,7 +18,7 @@ struct EnemiesKilled {
 
 typedef struct EnemiesKilled EnemiesKilled;
 
-@interface EnemiesManager : SKSpriteNode
+@interface EnemiesManager : BaseObjectsManager
 
 
 @property (assign, nonatomic) EnemiesKilled enemiesKilled;

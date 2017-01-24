@@ -20,12 +20,11 @@
 #import "GameSceneLabels.h"
 #import "PowerUpsManager.h"
 
-static CGFloat spaceShipeOffset = 25;
+static CGFloat rocketYOffsetScale = 0.15;
 
 @interface GameScene() <SKPhysicsContactDelegate>
 
 @property (strong, nonatomic) UITapGestureRecognizer* doubleTap;
-
 
 @end
 
@@ -90,7 +89,7 @@ CFTimeInterval lastUpdatedTime;
         
         // Rocket
         rocket = [Rocket rocketSprite];
-        rocket.position = CGPointMake(size.width / 2, controlPanel.size.height + rocket.size.height / 2 + spaceShipeOffset);
+        rocket.position = CGPointMake(size.width / 2, rocket.size.height + rocketYOffsetScale * self.size.height);
         [self addChild:rocket];
         
         // Labels

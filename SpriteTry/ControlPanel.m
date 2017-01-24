@@ -14,7 +14,7 @@ SKSpriteNode* jostic;
 
 + (instancetype) controlPanelSpriteWithScene:(SKScene*) scene {
     
-    ControlPanel* controlPanel = [ControlPanel spriteNodeWithColor:[SKColor greenColor] size:CGSizeMake(scene.size.width, scene.size.height * 0.15)];
+    ControlPanel* controlPanel = [ControlPanel spriteNodeWithColor:[SKColor clearColor] size:CGSizeMake(scene.size.width, scene.size.height * 1)];
     controlPanel.position = CGPointMake(scene.size.width / 2, controlPanel.size.height / 2);
 
     return controlPanel;
@@ -37,7 +37,10 @@ SKSpriteNode* jostic;
             jostic.physicsBody.collisionBitMask = josticCategory;
             [self.scene addChild:jostic];
             // attach jostic to rocket
-            SKPhysicsJoint* joint = [SKPhysicsJointSliding jointWithBodyA:jostic.physicsBody bodyB:rocket.physicsBody anchor:touchLocation axis:CGVectorMake(0, 1)];
+            
+            SKPhysicsJoint* joint = [SKPhysicsJointFixed  jointWithBodyA:jostic.physicsBody bodyB:rocket.physicsBody anchor:touchLocation];
+            
+            //SKPhysicsJoint* joint = [SKPhysicsJointSliding jointWithBodyA:jostic.physicsBody bodyB:rocket.physicsBody anchor:touchLocation axis:CGVectorMake(0, 1)];
             [self.scene.physicsWorld addJoint:joint];
         }
     }

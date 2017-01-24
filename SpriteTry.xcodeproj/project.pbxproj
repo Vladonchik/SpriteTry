@@ -33,6 +33,8 @@
 		31CC45201E28EC920032CE58 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 31CC451E1E28EC920032CE58 /* LaunchScreen.storyboard */; };
 		31E58F1F1E368BD600CE4FE1 /* PowerUpFastShoot.m in Sources */ = {isa = PBXBuildFile; fileRef = 31E58F1E1E368BD600CE4FE1 /* PowerUpFastShoot.m */; };
 		31E58F231E3693A600CE4FE1 /* PowerUpsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 31E58F221E3693A600CE4FE1 /* PowerUpsManager.m */; };
+		31E58F6B1E37DB4F00CE4FE1 /* LevelManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 31E58F6A1E37DB4F00CE4FE1 /* LevelManager.m */; };
+		31E58F6E1E37DE7700CE4FE1 /* BaseObjectsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 31E58F6D1E37DE7700CE4FE1 /* BaseObjectsManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -83,6 +85,10 @@
 		31E58F1E1E368BD600CE4FE1 /* PowerUpFastShoot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PowerUpFastShoot.m; sourceTree = "<group>"; };
 		31E58F211E3693A600CE4FE1 /* PowerUpsManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PowerUpsManager.h; sourceTree = "<group>"; };
 		31E58F221E3693A600CE4FE1 /* PowerUpsManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PowerUpsManager.m; sourceTree = "<group>"; };
+		31E58F691E37DB4F00CE4FE1 /* LevelManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LevelManager.h; path = ../LevelManager.h; sourceTree = "<group>"; };
+		31E58F6A1E37DB4F00CE4FE1 /* LevelManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LevelManager.m; path = ../LevelManager.m; sourceTree = "<group>"; };
+		31E58F6C1E37DE7700CE4FE1 /* BaseObjectsManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseObjectsManager.h; sourceTree = "<group>"; };
+		31E58F6D1E37DE7700CE4FE1 /* BaseObjectsManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseObjectsManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,13 +145,15 @@
 			name = Enemies;
 			sourceTree = "<group>";
 		};
-		310634641E34B4C10064FCF0 /* Handlers */ = {
+		310634641E34B4C10064FCF0 /* General Handlers */ = {
 			isa = PBXGroup;
 			children = (
+				31E58F691E37DB4F00CE4FE1 /* LevelManager.h */,
+				31E58F6A1E37DB4F00CE4FE1 /* LevelManager.m */,
 				310634611E34B2E10064FCF0 /* CollisionHandler.h */,
 				310634621E34B2E10064FCF0 /* CollisionHandler.m */,
 			);
-			name = Handlers;
+			name = "General Handlers";
 			sourceTree = "<group>";
 		};
 		3148E1391E29148300A616EA /* Supporting Files */ = {
@@ -199,6 +207,8 @@
 		3148E15B1E2B84B300A616EA /* GameScene Objects */ = {
 			isa = PBXGroup;
 			children = (
+				31E58F6C1E37DE7700CE4FE1 /* BaseObjectsManager.h */,
+				31E58F6D1E37DE7700CE4FE1 /* BaseObjectsManager.m */,
 				3106345A1E33B7FB0064FCF0 /* Enemies */,
 				310634451E315AB30064FCF0 /* Obstacles */,
 				31E58F201E368BDA00CE4FE1 /* Power Ups */,
@@ -232,7 +242,7 @@
 				3148E1461E2A4FDC00A616EA /* Scenes */,
 				3148E14A1E2A58AD00A616EA /* General Objects */,
 				3148E15B1E2B84B300A616EA /* GameScene Objects */,
-				310634641E34B4C10064FCF0 /* Handlers */,
+				310634641E34B4C10064FCF0 /* General Handlers */,
 				3148E14D1E2A611200A616EA /* Particles */,
 				31CC450F1E28EC920032CE58 /* GameScene.sks */,
 				31CC45111E28EC920032CE58 /* Actions.sks */,
@@ -293,6 +303,7 @@
 					31CC45051E28EC920032CE58 = {
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = 5HYBF2ZF8V;
+						LastSwiftMigration = 0820;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -353,8 +364,10 @@
 				310634481E315D880064FCF0 /* ObstaclesManager.m in Sources */,
 				31CC45151E28EC920032CE58 /* GameScene.m in Sources */,
 				31E58F231E3693A600CE4FE1 /* PowerUpsManager.m in Sources */,
+				31E58F6B1E37DB4F00CE4FE1 /* LevelManager.m in Sources */,
 				310634671E35F8400064FCF0 /* GameSceneLabels.m in Sources */,
 				31CC450B1E28EC920032CE58 /* main.m in Sources */,
+				31E58F6E1E37DE7700CE4FE1 /* BaseObjectsManager.m in Sources */,
 				3148E1491E2A58AB00A616EA /* Stars.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -475,11 +488,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = 5HYBF2ZF8V;
 				INFOPLIST_FILE = SpriteTry/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.VV.SpriteTry;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -487,11 +503,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = 5HYBF2ZF8V;
 				INFOPLIST_FILE = SpriteTry/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.VV.SpriteTry;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
