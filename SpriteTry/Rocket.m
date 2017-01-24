@@ -70,10 +70,9 @@ CGFloat normalFireRate = 1.0;
 
 -(void) powerUpFireRate {
     
-    // stack power ups
-    if (self.fireRate <= 0.5 && self.fireRate > 0.05) {
+    // stack power ups until fire rate equls 0.1
+    if (self.fireRate <= 0.5 && self.fireRate >= 0.2) {
         self.fireRate -= 0.1 ;
-        NSLog(@"stack %f", self.fireRate);
         [self removeActionForKey:@"powerUpFireRate"];
     }
     
