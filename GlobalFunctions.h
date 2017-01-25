@@ -1,5 +1,5 @@
 //
-//  BaseObjectsManager.h
+//  GlobalFunctions.h
 //  SpriteTry
 //
 //  Created by Vladysalv Vyshnevksyy on 1/24/17.
@@ -8,9 +8,8 @@
 
 #import <SpriteKit/SpriteKit.h>
 
-@interface BaseObjectsManager : SKNode
+@interface GlobalFunctions : SKNode
 
--(void) spawn;
--(void) createObjects;
++(void) invoceSelector:(SEL) selector onObject:(id) object;
 
 @end

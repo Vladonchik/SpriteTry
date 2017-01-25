@@ -34,7 +34,8 @@
 		31E58F1F1E368BD600CE4FE1 /* PowerUpFastShoot.m in Sources */ = {isa = PBXBuildFile; fileRef = 31E58F1E1E368BD600CE4FE1 /* PowerUpFastShoot.m */; };
 		31E58F231E3693A600CE4FE1 /* PowerUpsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 31E58F221E3693A600CE4FE1 /* PowerUpsManager.m */; };
 		31E58F6B1E37DB4F00CE4FE1 /* LevelManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 31E58F6A1E37DB4F00CE4FE1 /* LevelManager.m */; };
-		31E58F6E1E37DE7700CE4FE1 /* BaseObjectsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 31E58F6D1E37DE7700CE4FE1 /* BaseObjectsManager.m */; };
+		31E58F6E1E37DE7700CE4FE1 /* BasicObjectsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 31E58F6D1E37DE7700CE4FE1 /* BasicObjectsManager.m */; };
+		31E58F721E3805C900CE4FE1 /* GlobalFunctions.m in Sources */ = {isa = PBXBuildFile; fileRef = 31E58F711E3805C900CE4FE1 /* GlobalFunctions.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -87,8 +88,10 @@
 		31E58F221E3693A600CE4FE1 /* PowerUpsManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PowerUpsManager.m; sourceTree = "<group>"; };
 		31E58F691E37DB4F00CE4FE1 /* LevelManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LevelManager.h; path = ../LevelManager.h; sourceTree = "<group>"; };
 		31E58F6A1E37DB4F00CE4FE1 /* LevelManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LevelManager.m; path = ../LevelManager.m; sourceTree = "<group>"; };
-		31E58F6C1E37DE7700CE4FE1 /* BaseObjectsManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseObjectsManager.h; sourceTree = "<group>"; };
-		31E58F6D1E37DE7700CE4FE1 /* BaseObjectsManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseObjectsManager.m; sourceTree = "<group>"; };
+		31E58F6C1E37DE7700CE4FE1 /* BasicObjectsManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BasicObjectsManager.h; sourceTree = "<group>"; };
+		31E58F6D1E37DE7700CE4FE1 /* BasicObjectsManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BasicObjectsManager.m; sourceTree = "<group>"; };
+		31E58F701E3805C900CE4FE1 /* GlobalFunctions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GlobalFunctions.h; sourceTree = "<group>"; };
+		31E58F711E3805C900CE4FE1 /* GlobalFunctions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GlobalFunctions.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,6 +132,8 @@
 		310634531E32D66B0064FCF0 /* Constants */ = {
 			isa = PBXGroup;
 			children = (
+				31E58F701E3805C900CE4FE1 /* GlobalFunctions.h */,
+				31E58F711E3805C900CE4FE1 /* GlobalFunctions.m */,
 				310634401E3157FC0064FCF0 /* Constants.h */,
 			);
 			name = Constants;
@@ -207,8 +212,7 @@
 		3148E15B1E2B84B300A616EA /* GameScene Objects */ = {
 			isa = PBXGroup;
 			children = (
-				31E58F6C1E37DE7700CE4FE1 /* BaseObjectsManager.h */,
-				31E58F6D1E37DE7700CE4FE1 /* BaseObjectsManager.m */,
+				31E58F6F1E37E00C00CE4FE1 /* Base Classes */,
 				3106345A1E33B7FB0064FCF0 /* Enemies */,
 				310634451E315AB30064FCF0 /* Obstacles */,
 				31E58F201E368BDA00CE4FE1 /* Power Ups */,
@@ -269,6 +273,15 @@
 				31E58F1E1E368BD600CE4FE1 /* PowerUpFastShoot.m */,
 			);
 			name = "Power Ups";
+			sourceTree = "<group>";
+		};
+		31E58F6F1E37E00C00CE4FE1 /* Base Classes */ = {
+			isa = PBXGroup;
+			children = (
+				31E58F6C1E37DE7700CE4FE1 /* BasicObjectsManager.h */,
+				31E58F6D1E37DE7700CE4FE1 /* BasicObjectsManager.m */,
+			);
+			name = "Base Classes";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -367,7 +380,8 @@
 				31E58F6B1E37DB4F00CE4FE1 /* LevelManager.m in Sources */,
 				310634671E35F8400064FCF0 /* GameSceneLabels.m in Sources */,
 				31CC450B1E28EC920032CE58 /* main.m in Sources */,
-				31E58F6E1E37DE7700CE4FE1 /* BaseObjectsManager.m in Sources */,
+				31E58F6E1E37DE7700CE4FE1 /* BasicObjectsManager.m in Sources */,
+				31E58F721E3805C900CE4FE1 /* GlobalFunctions.m in Sources */,
 				3148E1491E2A58AB00A616EA /* Stars.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

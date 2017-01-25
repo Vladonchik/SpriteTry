@@ -7,38 +7,80 @@
 //
 
 #import "LevelManager.h"
+#import "GlobalFunctions.h"
 
-#import "ObstaclesManager.h"
-#import "PowerUpsManager.h"
-#import "EnemiesManager.h"
+@interface LevelManager()
+
+@property (strong, nonatomic) NSMutableArray* managers;
+
+@end
 
 @implementation LevelManager
 
-{
-    
-EnemiesManager* enemiesManager;
-ObstaclesManager* obstacleManager;
-PowerUpsManager* powerUpsManager;
 
+
+-(NSMutableArray*) managers {
+    if (!_managers) {
+        _managers = [[NSMutableArray alloc] init];
+    }
+    return _managers;
 }
+
+#pragma mark - Initialization
+
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        [self setUp];
+    }
+    return self;
+}
+
 -(void) setUp {
     
     // Obstacles
-    obstacleManager = [ObstaclesManager node];
-    [self addChild:obstacleManager];
+    self.obstacleManager = [ObstaclesManager node];
+    [self addChild:self.obstacleManager];
     
     // Enemies
-    enemiesManager = [EnemiesManager node];
-    [self addChild:enemiesManager];
+    self.enemiesManager = [EnemiesManager node];
+    [self addChild:self.enemiesManager];
     
     // Power Ups
-    powerUpsManager = [PowerUpsManager node];
-    [self addChild:powerUpsManager];
+    self.powerUpsManager = [PowerUpsManager node];
+    [self addChild:self.powerUpsManager];
     
+    [self.managers addObject:self.obstacleManager];
+    [self.managers addObject:self.enemiesManager];
+    [self.managers addObject:self.powerUpsManager];
 }
 
--(void) startLevel_1 {
+#pragma mark - Start Level #
+
+-(void) startLevel:(NSInteger) level {
     
+    //SEL levelSelector = NSSelectorFromString(@"spawnLevel:");
+        
+    for (BasicObjectsManager* manager in self.managers) {
+        if ([manager isKindOfClass:[EnemiesManager class]]) {
+            if ([manager respondsToSelector:@selector(spawnLevel:)]) {
+                [manager performSelector:@selector(spawnLevel:) withObject:[NSNumber numberWithInteger:level]];
+
+            }
+        }
+    }
 }
+
+
+
+
+
+
 
 @end
+
+
+
+
+

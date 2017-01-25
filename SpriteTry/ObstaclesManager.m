@@ -24,14 +24,12 @@ CGFloat obtaclesFrequency;
         obstacleHeightScale = 0.03;
         obtaclesSpeed = 20;
         obtaclesFrequency = 30;
-        
-        [self spawn];
     }
     return self;
 }
 
 
--(void) spawn {
+-(void) spawnLevel_1 {
     __weak ObstaclesManager *weakSelf = self;
     
     //CGFloat randomBetween_0_1 = (CGFloat)arc4random() / UINT32_MAX;

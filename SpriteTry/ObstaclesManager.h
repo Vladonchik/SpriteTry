@@ -7,8 +7,9 @@
 //
 
 #import <SpriteKit/SpriteKit.h>
+#import "BasicObjectsManager.h"
 
-@interface ObstaclesManager : SKNode
+@interface ObstaclesManager : BasicObjectsManager
 
 
 

@@ -7,7 +7,8 @@
 //
 
 #import <SpriteKit/SpriteKit.h>
+#import "BasicObjectsManager.h"
 
-@interface PowerUpsManager : SKNode
+@interface PowerUpsManager : BasicObjectsManager
 
 @end

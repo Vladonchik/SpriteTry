@@ -8,21 +8,24 @@
 
 #import <SpriteKit/SpriteKit.h>
 #import "Enemy.h"
-#import "BaseObjectsManager.h"
+#import "BasicObjectsManager.h"
 
 struct EnemiesKilled {
     NSInteger enemyType1KilledTimes;
     
     NSInteger totalEnemiesKilled;
 };
-
 typedef struct EnemiesKilled EnemiesKilled;
 
-@interface EnemiesManager : BaseObjectsManager
 
+
+@interface EnemiesManager : BasicObjectsManager
 
 @property (assign, nonatomic) EnemiesKilled enemiesKilled;
 
 -(void) enemyKilled:(Enemy*) enemy;
+
+-(void) spawnLevel:(NSNumber*) level;
+
 
 @end

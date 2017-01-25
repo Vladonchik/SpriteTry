@@ -27,13 +27,11 @@
         widthScale = 0.08;
         heightScale = 0.06;
         speed = 10;
-        
-        [self spawn];
     }
     return self;
 }
 
--(void) spawn {
+-(void) spawnLevel_1 {
     
     __weak PowerUpsManager *weakSelf = self;
     

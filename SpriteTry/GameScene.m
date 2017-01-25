@@ -10,15 +10,13 @@
 #import "Stars.h"
 #import "Rocket.h"
 #import "Obstacle.h"
-#import "ObstaclesManager.h"
 #import "Constants.h"
 #import "TitleScene.h"
-#import "EnemiesManager.h"
 #import "Enemy.h"
 #import "ControlPanel.h"
 #import "CollisionHandler.h"
 #import "GameSceneLabels.h"
-#import "PowerUpsManager.h"
+#import "LevelManager.h"
 
 static CGFloat rocketYOffsetScale = 0.15;
 
@@ -30,10 +28,10 @@ static CGFloat rocketYOffsetScale = 0.15;
 
 @implementation GameScene
 
-EnemiesManager* enemiesManager;
-ObstaclesManager* obstacleManager;
-PowerUpsManager* powerUpsManager;
-
+{
+    
+LevelManager* levelManager;
+    
 Rocket* rocket;
 ControlPanel* controlPanel;
 CollisionHandler* collisionHandler;
@@ -42,6 +40,7 @@ GameSceneLabels* gameSceneLabels;
 SKShapeNode *spinnyNode;
 CFTimeInterval lastUpdatedTime;
 
+}
 #pragma mark - Initialization
 
 -(UITapGestureRecognizer*) doubleTap {
@@ -71,17 +70,9 @@ CFTimeInterval lastUpdatedTime;
         Stars* stars = [Stars node];
         [self addChild:stars];
         
-        // Obstacles
-        obstacleManager = [ObstaclesManager node];
-        [self addChild:obstacleManager];
-        
-        // Enemies
-        enemiesManager = [EnemiesManager node];
-        [self addChild:enemiesManager];
-        
-        // Power Ups
-        powerUpsManager = [PowerUpsManager node];
-        [self addChild:powerUpsManager];
+        levelManager = [LevelManager node];
+        [self addChild:levelManager];
+        [levelManager startLevel:2];
         
         //Controll Panel
         controlPanel = [ControlPanel controlPanelSpriteWithScene:self];
@@ -160,8 +151,8 @@ CFTimeInterval lastUpdatedTime;
             break;
             
         case missileCategory | enemyCategory: {
-            [collisionHandler missileAndEnemy:enemiesManager forContact:contact];
-            NSInteger enemiesKilled = enemiesManager.enemiesKilled.totalEnemiesKilled;
+            [collisionHandler missileAndEnemy:levelManager.enemiesManager forContact:contact];
+            NSInteger enemiesKilled = levelManager.enemiesManager.enemiesKilled.totalEnemiesKilled;
             [gameSceneLabels enemiesKilled:enemiesKilled];
         }
             break;
