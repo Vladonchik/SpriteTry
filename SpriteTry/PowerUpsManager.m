@@ -26,27 +26,30 @@
     if (self) {
         widthScale = 0.08;
         heightScale = 0.06;
-        speed = 10;
+        speed = 20;
     }
     return self;
 }
 
+#pragma mark - Level 1
+
 -(void) spawnLevel_1 {
     
-    __weak PowerUpsManager *weakSelf = self;
-    
     //CGFloat randomBetween_0_1 = (CGFloat)arc4random() / UINT32_MAX;
+    PowerUpFastShoot* fastShoot = [self createPowerUpFastShoot];
     
-    SKAction* delay = [SKAction waitForDuration: 2 + arc4random_uniform(0)];
-    SKAction *update = [SKAction runBlock:^{
-        [weakSelf createPowerUps];
-    }];
-    SKAction* updateLoop = [SKAction sequence:@[delay, update]];
+    CGFloat destinationY = 0 - self.scene.size.height - fastShoot.size.height;
+    CGFloat duration = 100 / speed;
+    SKAction* move = [SKAction moveByX:0 y:destinationY duration:duration];
+    SKAction* remove = [SKAction removeFromParent];
     
-    [self runAction:[SKAction repeatActionForever:updateLoop]];
+    [fastShoot runAction:[SKAction sequence:@[move, remove]]];
 }
 
--(void) createPowerUps {
+
+#pragma mark - Actions on Power Up
+
+-(PowerUpFastShoot*) createPowerUpFastShoot {
     
     PowerUpFastShoot * fastShoot = [PowerUpFastShoot powerUpFastShootSpriteWithSize:CGSizeMake(self.scene.size.width * widthScale,  self.scene.size.height * heightScale)];
     
@@ -55,12 +58,7 @@
     fastShoot.position = CGPointMake(startX, startY);
     [self addChild:fastShoot];
     
-    CGFloat destinationY = 0 - self.scene.size.height - fastShoot.size.height;
-    CGFloat duration = 100 / speed;
-    SKAction* move = [SKAction moveByX:0 y:destinationY duration:duration];
-    SKAction* remove = [SKAction removeFromParent];
-    
-    [fastShoot runAction:[SKAction sequence:@[move, remove]]];
+    return fastShoot;
 }
 
 

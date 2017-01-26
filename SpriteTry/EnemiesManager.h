@@ -25,7 +25,6 @@ typedef struct EnemiesKilled EnemiesKilled;
 
 -(void) enemyKilled:(Enemy*) enemy;
 
--(void) spawnLevel:(NSNumber*) level;
 
 
 @end

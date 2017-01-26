@@ -61,13 +61,10 @@
 -(void) startLevel:(NSInteger) level {
     
     //SEL levelSelector = NSSelectorFromString(@"spawnLevel:");
-        
+    
     for (BasicObjectsManager* manager in self.managers) {
-        if ([manager isKindOfClass:[EnemiesManager class]]) {
-            if ([manager respondsToSelector:@selector(spawnLevel:)]) {
-                [manager performSelector:@selector(spawnLevel:) withObject:[NSNumber numberWithInteger:level]];
-
-            }
+        if ([manager respondsToSelector:@selector(spawnLevel:)]) {
+            [manager performSelector:@selector(spawnLevel:) withObject:[NSNumber numberWithInteger:level]];
         }
     }
 }

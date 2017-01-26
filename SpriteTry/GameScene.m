@@ -72,7 +72,7 @@ CFTimeInterval lastUpdatedTime;
         
         levelManager = [LevelManager node];
         [self addChild:levelManager];
-        [levelManager startLevel:2];
+        [levelManager startLevel:1];
         
         //Controll Panel
         controlPanel = [ControlPanel controlPanelSpriteWithScene:self];
@@ -133,9 +133,9 @@ CFTimeInterval lastUpdatedTime;
     CGPoint convertPoint = [self convertPointFromView:touchLocation];
     SKNode* touchedNode = [self nodeAtPoint:convertPoint];
     
-//    if (touchedNode == controlPanel) {
-//        // [rocket shoot];
-//    }
+    if (touchedNode == controlPanel) {
+         [rocket shoot];
+    }
 }
 
 #pragma mark - Contact Delegate
@@ -157,7 +157,7 @@ CFTimeInterval lastUpdatedTime;
         }
             break;
         case obstacleCategory | enemyCategory: {
-            [collisionHandler enemyAndObstacle:contact];
+            //[collisionHandler enemyAndObstacle:contact];
         }
             break;
         case missileCategory | worldCategory: {

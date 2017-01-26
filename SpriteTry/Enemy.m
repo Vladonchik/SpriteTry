@@ -33,5 +33,9 @@
     return enemy;
 }
 
+    - (void)dealloc
+    {
+        NSLog(@"f");
+    }
 
 @end

@@ -10,12 +10,6 @@
 
 @interface BasicObjectsManager : SKNode
 
--(void) spawnLevel_1;
-
--(void) spawnLevel_2;
-
--(void) spawnLevel_3;
-
--(void) spawnLevel_4;
+-(void) spawnLevel:(NSNumber*) level;
 
 @end

@@ -14,7 +14,6 @@
 CGFloat obstacleWidthScale;
 CGFloat obstacleHeightScale;
 CGFloat obtaclesSpeed;
-CGFloat obtaclesFrequency;
 
 - (instancetype)init
 {
@@ -23,34 +22,16 @@ CGFloat obtaclesFrequency;
         obstacleWidthScale = 0.3;
         obstacleHeightScale = 0.03;
         obtaclesSpeed = 20;
-        obtaclesFrequency = 30;
     }
     return self;
 }
 
+#pragma mark - Level 1
 
 -(void) spawnLevel_1 {
-    __weak ObstaclesManager *weakSelf = self;
     
     //CGFloat randomBetween_0_1 = (CGFloat)arc4random() / UINT32_MAX;
-    
-    SKAction* delay = [SKAction waitForDuration: 2 + arc4random_uniform(100 / obtaclesFrequency)];
-    SKAction *update = [SKAction runBlock:^{
-        [weakSelf createObstacles];
-    }];
-    SKAction* updateLoop = [SKAction sequence:@[delay, update]];
-    
-    [self runAction:[SKAction repeatActionForever:updateLoop]];
-}
-
--(void) createObstacles {
-
-    Obstacle * obstacle = [Obstacle obstacleSpriteWithSize:CGSizeMake(self.scene.size.width * obstacleWidthScale,  self.scene.size.height * obstacleHeightScale)];
-    
-    CGFloat startX = arc4random_uniform(self.scene.size.width - obstacle.size.width) + obstacle.size.width / 2;
-    CGFloat startY = self.scene.size.height + obstacle.size.height * 1.8;
-    obstacle.position = CGPointMake(startX, startY);
-    [self addChild:obstacle];
+    Obstacle* obstacle = [self createObstacle];
     
     CGFloat destinationY = 0 - self.scene.size.height - obstacle.size.height;
     CGFloat duration = 100 / obtaclesSpeed;
@@ -60,8 +41,18 @@ CGFloat obtaclesFrequency;
     [obstacle runAction:[SKAction sequence:@[move, remove]]];
 }
 
-- (void)dealloc {
-    NSLog(@"object: %@ dealloced", NSStringFromClass(self.class));
+
+#pragma mark - Actions on Obstacle
+
+-(Obstacle*) createObstacle {
+    Obstacle * obstacle = [Obstacle obstacleSpriteWithSize:CGSizeMake(self.scene.size.width * obstacleWidthScale, self.scene.size.width * obstacleHeightScale)];
+    
+    CGFloat startX = arc4random_uniform(self.scene.size.width - obstacle.size.width) + obstacle.size.width / 2;
+    CGFloat startY = self.scene.size.height + obstacle.size.height * 1.8;
+    obstacle.position = CGPointMake(startX, startY);
+    [self addChild:obstacle];
+    
+    return obstacle;
 }
 
 @end
